@@ -11,6 +11,7 @@ phases:
   build:
     commands:
     - echo Building the Docker image...
+    - printf '[{"name":"$IMAGE_REPOSITORY_NAME","imageUri":"$ECR_URI/$IMAGE_REPOSITORY_NAME:$IMAGE_TAG"}]' > imagedefinitions.json
     - docker-compose build
     - docker tag $IMAGE_REPOSITORY_NAME:$IMAGE_TAG $ECR_URI/$IMAGE_REPOSITORY_NAME:$IMAGE_TAG
   post_build:
