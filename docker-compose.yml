@@ -5,8 +5,8 @@ services:
             context: .
             dockerfile: Dockerfile
         ports:
-            - 80:8080
-            - 443:8443
+            - 80:80
+            - 443:443
         environment:
             OP_CACHE: true
             SSL_MODE: "mixed"
