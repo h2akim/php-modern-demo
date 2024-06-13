@@ -5,10 +5,10 @@ services:
             context: .
             dockerfile: Dockerfile
         ports:
-            - 8080:8080
-            - 4433:8443
+            - 80:8080
+            - 443:8443
         environment:
-            OP_CACHE:
+            OP_CACHE: true
             SSL_MODE: "mixed"
             AUTORUN_ENABLED: true
             AUTORUN_LARAVEL_MIGRATION: true

@@ -10,13 +10,6 @@ phases:
     - aws ecr get-login-password --region $AWS_REGION | docker login --username AWS --password-stdin $ECR_URI
   build:
     commands:
-    - echo Build started on `date`
-    - echo running composer install
-    - composer install
-    - echo creating .env file...
-    - cp .env.example .env
-    - echo generating app key
-    - php artisan key:generate
     - echo Building the Docker image...
     - docker-compose build
     - docker tag $IMAGE_REPOSITORY_NAME:$IMAGE_TAG $ECR_URI/$IMAGE_REPOSITORY_NAME:$IMAGE_TAG
