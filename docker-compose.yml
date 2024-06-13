@@ -1,0 +1,14 @@
+services:
+    php:
+        image: php-modern-demo:latest
+        build:
+            context: .
+            dockerfile: Dockerfile
+        ports:
+            - 8080:8080
+            - 4433:8443
+        environment:
+            OP_CACHE:
+            SSL_MODE: "mixed"
+            AUTORUN_ENABLED: true
+            AUTORUN_LARAVEL_MIGRATION: true
