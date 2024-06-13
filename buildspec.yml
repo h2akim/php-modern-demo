@@ -19,3 +19,8 @@ phases:
       - echo Pushing the Docker image...
       - docker image ls -a
       - docker push $ECR_URI/$IMAGE_REPOSITORY_NAME:$IMAGE_TAG
+artifacts:
+  type: zip
+  files:
+    - '**/*'
+  name: php-modern-demo-art-$(date +%Y-%m-%d)
